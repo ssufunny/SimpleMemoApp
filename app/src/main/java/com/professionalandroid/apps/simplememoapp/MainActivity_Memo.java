@@ -23,6 +23,13 @@ public class MainActivity_Memo extends AppCompatActivity {
     private EditText editText_TextArea;
     //메모를 저장할 파일
     private String fileName = "SimpleMemo.txt";
+    //시간 출력
+    private TextView textView_Time;
+    private TextView textView_Title;
+    long mNow = System.currentTimeMillis();
+    Date mReDate = new Date(mNow);
+    SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    String formatDate = mFormat.format(mReDate);
 
 
 
@@ -36,11 +43,15 @@ public class MainActivity_Memo extends AppCompatActivity {
         bt_Load = findViewById(R.id.button_load);
         bt_Delete = findViewById(R.id.button_delete);
         editText_TextArea = findViewById(R.id.editText);
+        //시간 텍스트 가져오기
+        textView_Time = findViewById(R.id.textView);
 
         //버튼 클릭시 기능 추가하는 함수 생성
         bt_Save.setOnClickListener(btnSave);
         bt_Load.setOnClickListener(btnLoad);
         bt_Delete.setOnClickListener(btnDelete);
+        //시간 기능 추가하는 함수 생성
+        textView_Time.setText(formatDate);
     }
 
 
